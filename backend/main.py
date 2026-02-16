@@ -13,13 +13,9 @@ from models import (
 
 app = FastAPI(title="Personal Finance API")
 
-_origins = ["http://localhost:5173"]
-if os.getenv("FRONTEND_URL"):
-    _origins.append(os.getenv("FRONTEND_URL"))
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=_origins,
+    allow_origins=["*"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
